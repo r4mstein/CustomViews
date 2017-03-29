@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="ProgressView">
+        <attr name="color_main" format="color" />
+        <attr name="color_secondary" format="color" />
+        <attr name="square_size" format="dimension" />
+        <attr name="width_between_rect" format="dimension" />
+    </declare-styleable>
+
+</resources>
