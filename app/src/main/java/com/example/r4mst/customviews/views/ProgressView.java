@@ -1,5 +1,6 @@
 package com.example.r4mst.customviews.views;
 
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -91,6 +92,8 @@ public final class ProgressView extends View {
         mRectTopLeft.right = mRectTopLeft.left + mSquareSize;
         mRectTopLeft.bottom = mRectTopLeft.top + mSquareSize;
 
+        mRectTopLeft.offset(amimatedValue, amimatedValue); // just for test, remove;
+
         mRectTopRight.left = mRectTopLeft.right + mWidthBetweenRect;
         mRectTopRight.top = mSquareSize;
         mRectTopRight.right = mRectTopRight.left + mSquareSize;
@@ -135,5 +138,22 @@ public final class ProgressView extends View {
         // Draw line from mRectTopRight to mRectBottomLeft
         _canvas.drawLine(mRectTopRight.left, mRectTopRight.bottom, mRectBottomLeft.right,
                 mRectBottomLeft.top, mMainPaint);
+    }
+
+    // just for test, remove;
+    private int amimatedValue;
+
+    public final void startAnim() {
+        ValueAnimator animation = ValueAnimator.ofInt(0, 20);
+        animation.setRepeatCount(ValueAnimator.INFINITE);
+        animation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator _animation) {
+                amimatedValue =  (int) _animation.getAnimatedValue();
+                ProgressView.this.invalidate(); // this will invoke onDraw
+            }
+        });
+        animation.setDuration(1000);
+        animation.start();
     }
 }

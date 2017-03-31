@@ -15,5 +15,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mProgressView = (ProgressView) findViewById(R.id.progress_view);
+        mProgressView.startAnim();
     }
 }
