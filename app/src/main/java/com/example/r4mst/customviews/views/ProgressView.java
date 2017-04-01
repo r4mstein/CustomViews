@@ -48,6 +48,8 @@ public final class ProgressView extends View {
 
     private int mSquareSize;
     private int mWidthBetweenRect;
+    private int mColorMain;
+    private int mColorSecondary;
 
     private float mTopLeftAnimValueTop;
     private float mTopLeftAnimValueLeft;
@@ -110,9 +112,9 @@ public final class ProgressView extends View {
 
         TypedArray typedArray = getContext().obtainStyledAttributes(_set, R.styleable.ProgressView);
 
-        int colorMain = typedArray.getColor(R.styleable.ProgressView_color_main,
+        mColorMain = typedArray.getColor(R.styleable.ProgressView_color_main,
                 ContextCompat.getColor(mContext, R.color.colorYellowMain));
-        int colorSecondary = typedArray.getColor(R.styleable.ProgressView_color_secondary,
+        mColorSecondary = typedArray.getColor(R.styleable.ProgressView_color_secondary,
                 ContextCompat.getColor(mContext, R.color.colorYellowSecondary));
 
         mSquareSize = typedArray.getDimensionPixelSize(R.styleable.ProgressView_square_size,
@@ -120,8 +122,8 @@ public final class ProgressView extends View {
         mWidthBetweenRect = typedArray.getDimensionPixelSize(R.styleable.ProgressView_width_between_rect,
                 WIDTH_BETWEEN_RECT);
 
-        mMainPaint.setColor(colorMain);
-        mSecondaryPaint.setColor(colorSecondary);
+        mMainPaint.setColor(mColorMain);
+        mSecondaryPaint.setColor(mColorSecondary);
 
         typedArray.recycle();
     }
@@ -205,10 +207,10 @@ public final class ProgressView extends View {
         mRectBottomRight.right = (int) (mBottomRightAnimValueLeft + mSquareSize);
         mRectBottomRight.bottom = (int) (mBottomRightAnimValueTop + mSquareSize);
 
-        mRectCenter.left = 3 * mSquareSize;
-        mRectCenter.top = 3 * mSquareSize;
-        mRectCenter.right = mRectCenter.left + (mWidthBetweenRect - 2 * mSquareSize);
-        mRectCenter.bottom = mRectCenter.top + (mWidthBetweenRect - 2 * mSquareSize);
+        mRectCenter.left = (int) (2.5f * mSquareSize);
+        mRectCenter.top = (int) (2.5f * mSquareSize);
+        mRectCenter.right = (mRectCenter.left + (mWidthBetweenRect - mSquareSize));
+        mRectCenter.bottom = (mRectCenter.top + (mWidthBetweenRect - mSquareSize));
 
         _canvas.drawRect(mRectTopLeft, mMainPaint);
         _canvas.drawRect(mRectTopRight, mMainPaint);
@@ -640,5 +642,55 @@ public final class ProgressView extends View {
         });
         topLeftAnimationTop.setDuration(DURATION_ANIM_SMALL_RECT);
         return topLeftAnimationTop;
+    }
+
+    /////
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        int size = 4 * mSquareSize + mWidthBetweenRect;
+        int width = resolveSizeAndState(size, widthMeasureSpec, 0);
+        int height = resolveSizeAndState(size, heightMeasureSpec, 0);
+
+        setMeasuredDimension(width, height);
+    }
+
+    public int getSquareSize() {
+        return mSquareSize;
+    }
+
+    public void setSquareSize(int squareSize) {
+        mSquareSize = squareSize;
+        invalidate();
+        requestLayout();
+    }
+
+    public int getWidthBetweenRect() {
+        return mWidthBetweenRect;
+    }
+
+    public void setWidthBetweenRect(int widthBetweenRect) {
+        mWidthBetweenRect = widthBetweenRect;
+        invalidate();
+        requestLayout();
+    }
+
+    public int getColorMain() {
+        return mColorMain;
+    }
+
+    public void setColorMain(int colorMain) {
+        mColorMain = colorMain;
+        invalidate();
+        requestLayout();
+    }
+
+    public int getColorSecondary() {
+        return mColorSecondary;
+    }
+
+    public void setColorSecondary(int colorSecondary) {
+        mColorSecondary = colorSecondary;
+        invalidate();
+        requestLayout();
     }
 }

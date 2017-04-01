@@ -1,7 +1,7 @@
 package com.example.r4mst.customviews;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import com.example.r4mst.customviews.views.ProgressView;
 
