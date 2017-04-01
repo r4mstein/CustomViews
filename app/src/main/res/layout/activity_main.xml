@@ -12,8 +12,6 @@
         android:id="@+id/progress_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:color_main="@color/colorPrimary"
-        app:color_secondary="@color/colorAccent"
         app:square_size="10dp"
         app:width_between_rect="60dp"
         />
