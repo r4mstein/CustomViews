@@ -8,12 +8,18 @@
     android:background="#1b1b1b"
     tools:context="com.example.r4mst.customviews.MainActivity">
 
-    <com.example.r4mst.customviews.views.ProgressView
-        android:id="@+id/progress_view"
+    <!--<com.example.r4mst.customviews.views.ProgressView-->
+        <!--android:id="@+id/progress_view"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--app:color_main="@color/colorAccent"-->
+        <!--app:color_secondary="@color/colorPrimary"/>-->
+
+    <com.example.r4mst.customviews.views.CircleMenu
+        android:id="@+id/circle_menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        app:color_main="@color/colorAccent"
-        app:color_secondary="@color/colorPrimary"/>
+        android:layout_centerInParent="true"/>
 
 </RelativeLayout>

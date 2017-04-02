@@ -3,18 +3,22 @@ package com.example.r4mst.customviews;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.example.r4mst.customviews.views.CircleMenu;
 import com.example.r4mst.customviews.views.ProgressView;
 
 public class MainActivity extends AppCompatActivity {
 
     private ProgressView mProgressView;
+    private CircleMenu mCircleMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mProgressView = (ProgressView) findViewById(R.id.progress_view);
-        mProgressView.startAnim();
+//        mProgressView = (ProgressView) findViewById(R.id.progress_view);
+//        mProgressView.startAnim();
+
+        mCircleMenu = (CircleMenu) findViewById(R.id.circle_menu);
     }
 }
