@@ -129,8 +129,8 @@ public final class ProgressView extends View {
     }
 
     @Override
-    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
-        super.onSizeChanged(w, h, oldw, oldh);
+    protected void onSizeChanged(final int _w, final int _h, final int _oldw, final int _oldh) {
+        super.onSizeChanged(_w, _h, _oldw, _oldh);
 
         mTopLeftAnimValueLeft = mSquareSize;
         mTopLeftAnimValueTop = mSquareSize;
@@ -153,7 +153,7 @@ public final class ProgressView extends View {
         drawLines(_canvas);
     }
 
-    private void drawLines(Canvas _canvas) {
+    private void drawLines(final Canvas _canvas) {
         // Draw top line
         topPath.reset();
         topPath.moveTo((mTopLeftAnimValueLeft + 0.5f * mSquareSize), (mTopLeftAnimValueTop + 0.5f * mSquareSize));
@@ -186,7 +186,7 @@ public final class ProgressView extends View {
         _canvas.drawPath(rightLeftPath, mMainPaint);
     }
 
-    private void drawRects(Canvas _canvas) {
+    private void drawRects(final Canvas _canvas) {
         mRectTopLeft.left = (int) mTopLeftAnimValueLeft;
         mRectTopLeft.top = (int) mTopLeftAnimValueTop;
         mRectTopLeft.right = (int) (mTopLeftAnimValueLeft + mSquareSize);
@@ -648,10 +648,10 @@ public final class ProgressView extends View {
 
     /////
     @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+    protected void onMeasure(final int _widthMeasureSpec, final int _heightMeasureSpec) {
         int size = 4 * mSquareSize + mWidthBetweenRect;
-        int width = resolveSizeAndState(size, widthMeasureSpec, 0);
-        int height = resolveSizeAndState(size, heightMeasureSpec, 0);
+        int width = resolveSizeAndState(size, _widthMeasureSpec, 0);
+        int height = resolveSizeAndState(size, _heightMeasureSpec, 0);
 
         setMeasuredDimension(width, height);
     }
