@@ -20,6 +20,13 @@
         android:id="@+id/circle_menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"/>
+        android:layout_centerInParent="true"
+        app:radius="150dp"
+        app:count_of_sectors="5"
+        app:main_stroke="10dp"
+        app:secondary_stroke="15dp"
+        app:color_menu_main="@color/colorAccent"
+        app:color_menu_secondary="@color/colorCircleMenuSecondary"
+        app:color_background="@color/colorPrimaryDark"/>
 
 </RelativeLayout>

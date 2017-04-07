@@ -6,4 +6,8 @@
 
     <color name="colorYellowMain">#FFF9C4</color>
     <color name="colorYellowSecondary">#FFF59D</color>
+
+    <color name="colorCircleMenuMain">#F44336</color>
+    <color name="colorCircleMenuSecondary">#8BC34A</color>
+    <color name="colorCircleMenuBackground">#3F51B5</color>
 </resources>

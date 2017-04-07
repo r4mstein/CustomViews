@@ -317,6 +317,7 @@ public final class ProgressView extends View {
     private ValueAnimator getBlinkAnimationSmallRect() {
         mLogger.d(TAG, "getBlinkAnimationSmallRect");
 
+        mMainPaint.setColor(mColorMain);
         ValueAnimator blinkAnimationSmallRect = ValueAnimator.ofInt(0, 250);
         blinkAnimationSmallRect.setRepeatCount(2);
         blinkAnimationSmallRect.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
@@ -334,6 +335,7 @@ public final class ProgressView extends View {
     private ValueAnimator getBlinkAnimationCenterRect() {
         mLogger.d(TAG, "getBlinkAnimationCenterRect");
 
+        mSecondaryPaint.setColor(mColorSecondary);
         ValueAnimator blinkAnimationCenterRect = ValueAnimator.ofInt(0, 80);
         blinkAnimationCenterRect.setRepeatCount(2);
         blinkAnimationCenterRect.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {

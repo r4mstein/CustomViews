@@ -8,4 +8,14 @@
         <attr name="width_between_rect" format="dimension" />
     </declare-styleable>
 
+    <declare-styleable name="CircleMenu">
+        <attr name="radius" format="dimension" />
+        <attr name="count_of_sectors" format="integer" />
+        <attr name="main_stroke" format="dimension" />
+        <attr name="secondary_stroke" format="dimension" />
+        <attr name="color_menu_main" format="color" />
+        <attr name="color_menu_secondary" format="color" />
+        <attr name="color_background" format="color" />
+    </declare-styleable>
+
 </resources>
