@@ -132,16 +132,6 @@ public final class CircleMenu extends View {
 
         typedArray.recycle();
 
-        mQuadrantTouched = new boolean[]{false, false, false, false, false};
-        mGlobalStartAngel = 0;
-        mResources = mContext.getResources();
-        mMatrix = new Matrix();
-        mGestureDetector = new GestureDetector(mContext, new MenuGestureListener());
-    }
-
-    @Override
-    protected void onDraw(final Canvas _canvas) {
-
         mStrokePaint.setColor(mColorMain);
         mStrokePaint.setStrokeWidth(mMainStroke);
         mCenterStrokePaint.setColor(mColorSecondary);
@@ -151,9 +141,19 @@ public final class CircleMenu extends View {
         mBackgroundPaint.setColor(mColorBackground);
         mCenterPaint.setColor(mColorMain);
 
-        mCircleCenter = mRadius + 0.5f * mMainStroke;
         mSectorAngle = 360 / mCountOfSectors;
+        mCircleCenter = mRadius + 0.5f * mMainStroke;
         mOval.set(mMainStroke, mMainStroke, 2 * mRadius, 2 * mRadius);
+
+        mQuadrantTouched = new boolean[]{false, false, false, false, false};
+        mGlobalStartAngel = 0;
+        mResources = mContext.getResources();
+        mMatrix = new Matrix();
+        mGestureDetector = new GestureDetector(mContext, new MenuGestureListener());
+    }
+
+    @Override
+    protected void onDraw(final Canvas _canvas) {
 
         // draw background circle
         _canvas.drawCircle(mCircleCenter, mCircleCenter, mRadius - 0.5f * mMainStroke, mBackgroundPaint);
@@ -411,6 +411,8 @@ public final class CircleMenu extends View {
 
     public void setRadius(int radius) {
         mRadius = radius;
+        mCircleCenter = mRadius + 0.5f * mMainStroke;
+        mOval.set(mMainStroke, mMainStroke, 2 * mRadius, 2 * mRadius);
         invalidate();
     }
 
@@ -420,6 +422,7 @@ public final class CircleMenu extends View {
 
     public void setCountOfSectors(int countOfSectors) {
         mCountOfSectors = countOfSectors;
+        mSectorAngle = 360 / mCountOfSectors;
         invalidate();
     }
 
@@ -429,6 +432,10 @@ public final class CircleMenu extends View {
 
     public void setMainStroke(int mainStroke) {
         mMainStroke = mainStroke;
+        mStrokePaint.setStrokeWidth(mMainStroke);
+        mChosenSectorPaint.setStrokeWidth(mMainStroke);
+        mCircleCenter = mRadius + 0.5f * mMainStroke;
+        mOval.set(mMainStroke, mMainStroke, 2 * mRadius, 2 * mRadius);
         invalidate();
     }
 
@@ -438,6 +445,7 @@ public final class CircleMenu extends View {
 
     public void setSecondaryStroke(int secondaryStroke) {
         mSecondaryStroke = secondaryStroke;
+        mCenterStrokePaint.setStrokeWidth(mSecondaryStroke);
         invalidate();
     }
 
@@ -447,6 +455,8 @@ public final class CircleMenu extends View {
 
     public void setColorMain(int colorMain) {
         mColorMain = colorMain;
+        mStrokePaint.setColor(mColorMain);
+        mCenterPaint.setColor(mColorMain);
         invalidate();
     }
 
@@ -456,6 +466,8 @@ public final class CircleMenu extends View {
 
     public void setColorSecondary(int colorSecondary) {
         mColorSecondary = colorSecondary;
+        mCenterStrokePaint.setColor(mColorSecondary);
+        mChosenSectorPaint.setColor(mColorSecondary);
         invalidate();
     }
 
@@ -465,6 +477,7 @@ public final class CircleMenu extends View {
 
     public void setColorBackground(int colorBackground) {
         mColorBackground = colorBackground;
+        mBackgroundPaint.setColor(mColorBackground);
         invalidate();
     }
 }

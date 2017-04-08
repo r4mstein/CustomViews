@@ -17,9 +17,6 @@ public class MainActivity extends AppCompatActivity {
 
     private Logger mLogger;
 
-    private ProgressView mProgressView;
-    private CircleMenu mCircleMenu;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,10 +24,10 @@ public class MainActivity extends AppCompatActivity {
 
         mLogger = LogManager.getLogger();
 
-//        mProgressView = (ProgressView) findViewById(R.id.progress_view);
-//        mProgressView.startAnim();
+        ProgressView progressView = (ProgressView) findViewById(R.id.progress_view);
+        progressView.startAnim();
 
-        mCircleMenu = (CircleMenu) findViewById(R.id.circle_menu);
+        CircleMenu circleMenu = (CircleMenu) findViewById(R.id.circle_menu);
 
         List<Integer> icons = new ArrayList<>();
         icons.add(R.drawable.ic_n1);
@@ -38,11 +35,11 @@ public class MainActivity extends AppCompatActivity {
         icons.add(R.drawable.ic_n3);
         icons.add(R.drawable.ic_n4);
         icons.add(R.drawable.ic_n5);
-//        icons.add(R.drawable.ic_n6);
+        icons.add(R.drawable.ic_n6);
 
-        mCircleMenu.setIconsForMenu(icons);
+        circleMenu.setIconsForMenu(icons);
 
-        mCircleMenu.setItemClickListener(new CircleMenu.OnMenuItemClickListener() {
+        circleMenu.setItemClickListener(new CircleMenu.OnMenuItemClickListener() {
             @Override
             public void onItemClick(int itemId) {
                 switch (itemId) {
@@ -61,9 +58,9 @@ public class MainActivity extends AppCompatActivity {
                     case R.drawable.ic_n5:
                         mLogger.d(TAG, "onItemClick: ic_n5 clicked");
                         break;
-//                    case R.drawable.ic_n6:
-//                        mLogger.d(TAG, "onItemClick: ic_n6 clicked");
-//                        break;
+                    case R.drawable.ic_n6:
+                        mLogger.d(TAG, "onItemClick: ic_n6 clicked");
+                        break;
                 }
             }
         });

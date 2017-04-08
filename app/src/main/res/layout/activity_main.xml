@@ -8,25 +8,21 @@
     android:background="#1b1b1b"
     tools:context="com.example.r4mst.customviews.MainActivity">
 
-    <!--<com.example.r4mst.customviews.views.ProgressView-->
-        <!--android:id="@+id/progress_view"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_centerInParent="true"-->
-        <!--app:color_main="@color/colorAccent"-->
-        <!--app:color_secondary="@color/colorPrimary"/>-->
+    <com.example.r4mst.customviews.views.ProgressView
+        android:id="@+id/progress_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        app:color_main="@color/colorAccent"
+        app:color_secondary="@color/colorPrimary"/>
 
     <com.example.r4mst.customviews.views.CircleMenu
         android:id="@+id/circle_menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        app:radius="150dp"
-        app:count_of_sectors="5"
-        app:main_stroke="10dp"
-        app:secondary_stroke="15dp"
-        app:color_menu_main="@color/colorAccent"
-        app:color_menu_secondary="@color/colorCircleMenuSecondary"
-        app:color_background="@color/colorPrimaryDark"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/progress_view"/>
 
 </RelativeLayout>
